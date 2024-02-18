@@ -5,7 +5,6 @@
 
 int angleToPulse(int ang, int SERVOMIN, int SERVOMAX);
 void MoveLegInit();
-void MoveLegTarget();
-void MoveLeg(uint8_t Leg[3], int angle[3], int SERVOMIN[3], int SERVOMAX[3]);
+void MoveLeg(int angle[3]);
 
 #endif

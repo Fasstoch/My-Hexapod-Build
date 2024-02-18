@@ -18,6 +18,6 @@ void setup() {
 
 void loop() {
   gestionEtat(); // défini dans "gestionEtat.h"
-  delay(50);
+  //delay(50);
 
 }

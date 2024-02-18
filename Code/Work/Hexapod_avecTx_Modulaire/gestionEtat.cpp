@@ -11,21 +11,24 @@ Etat etatPrecedent = DESACTIVE;
 void gestionEtat() {
   if (etatActuel == ACTIVE) {
     Serial.print("Activé");
-    MoveLeg(LegRF, targetAngles, LegRF_SERVOMIN, LegRF_SERVOMAX);
+    MoveLeg(targetAngles);
   } else {
     Serial.print("Désactivé");
-    MoveLeg(LegRF, initAngles, LegRF_SERVOMIN, LegRF_SERVOMAX);
+    MoveLeg(initAngles);
   }
 
+/*
+  // Vérifier l'état du bouton right_B_state
   if (readingData.right_B_state == 0) {
     Serial.println(" // Bouton droit appuyé");
   } else {
     Serial.println(" // RAS");
   }
+*/
 
   // Vérifier l'état du bouton left_B_state
   if (readingData.left_B_state == 0) {
-    // Si le bouton est activé, mettre à jour l'état actuel
+    // Si "etatActuel" = ACTIVE est vrai, alors "etatActuel"= DESACTIVE, sinon "etatActuel"=ACTIVE
     etatActuel = (etatActuel == ACTIVE) ? DESACTIVE : ACTIVE;
 
     // Attendre que le bouton soit relâché
